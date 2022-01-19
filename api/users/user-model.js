@@ -20,8 +20,16 @@ async function findPosts(user_id) {
       },
       etc
     ]
+
+    select
+        contents, username, p.id as post_id
+    from posts as p
+    join users as u
+        on u.id = p.user_id
+    where u.id = 2;
+
   */
- return 'foo'
+ const rows = await db('')
 }
 
 function find() {
