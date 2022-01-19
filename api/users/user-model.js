@@ -105,6 +105,7 @@ async function findById(id) {
     .where('u.id', id)
 
   const result = {
+    username: rows[0].username,
     
   }
   return result
