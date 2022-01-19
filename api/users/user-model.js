@@ -69,7 +69,7 @@ async function find() {
     .leftJoin('posts as p', 'u.id', 'p.user_id')
     .groupBy('u.id')
     .select('u.id as user_id', 'username')
-    .count()
+    .count('p.id as post_count')
 
  // maybe make changes?
  return rows
