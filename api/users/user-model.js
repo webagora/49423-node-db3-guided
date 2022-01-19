@@ -38,8 +38,7 @@ async function findPosts(user_id) {
   return rows
 }
 
-function find() {
-  return db('users')
+async function find() {
   /*
     Improve so it resolves this structure:
 
@@ -57,6 +56,7 @@ function find() {
         etc
     ]
   */
+  return 'foo'
 }
 
 function findById(id) {
