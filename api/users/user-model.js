@@ -104,7 +104,10 @@ async function findById(id) {
     .select('username', 'u.id as user_id', 'p.id as post_id', 'contents')
     .where('u.id', id)
 
-  return rows
+  const result = {
+    
+  }
+  return result
 }
 
 function add(user) {
