@@ -106,7 +106,8 @@ async function findById(id) {
 
   const result = {
     username: rows[0].username,
-    
+    user_id: rows[0].user_id,
+    posts: [],
   }
   return result
 }
