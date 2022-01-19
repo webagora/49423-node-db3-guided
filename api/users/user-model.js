@@ -108,7 +108,7 @@ console.log(rows)
     username: rows[0].username,
     user_id: rows[0].user_id,
     posts: rows.reduce((posts, post) => {
-      return posts
+      if (!post.post_id)
     }, []),
   }
   return result
