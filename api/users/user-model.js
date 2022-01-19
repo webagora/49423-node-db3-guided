@@ -55,8 +55,19 @@ async function find() {
         },
         etc
     ]
+
+  select
+      u.id as user_id, username, count(p.id) as post_count
+  from users as u
+  left join posts as p
+      on u.id = p.user_id
+  group by u.id
+  order by post_count desc;
+
   */
-  return 'foo'
+ const rows = await db()
+
+ // maybe make changes?
 }
 
 function findById(id) {
