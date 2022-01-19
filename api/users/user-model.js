@@ -109,6 +109,7 @@ async function findById(id) {
     user_id: rows[0].user_id,
     posts: rows.reduce((posts, post) => {
       if (!post.post_id) return posts
+      const { contents, post_id} = post
       return posts.concat({ contents: post.contents, post_id: post.post_id })
     }, []),
   }
