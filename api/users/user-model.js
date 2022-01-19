@@ -73,8 +73,7 @@ async function find() {
   return rows
 }
 
-function findById(id) {
-  return db('users').where({ id }).first()
+async function findById(id) {
   /*
     Improve so it resolves this structure:
 
@@ -90,6 +89,7 @@ function findById(id) {
       ]
     }
   */
+  return 'foobar'
 }
 
 function add(user) {
