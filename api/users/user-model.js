@@ -103,13 +103,13 @@ async function findById(id) {
     .leftJoin('posts as p', 'u.id', 'p.user_id')
     .select('username', 'u.id as user_id', 'p.id as post_id', 'contents')
     .where('u.id', id)
-console.log(rows)
+  console.log(rows)
   const result = {
     username: rows[0].username,
     user_id: rows[0].user_id,
     posts: rows.reduce((posts, post) => {
       if (!post.post_id) return posts
-      return posts.concat({ })
+      return posts.concat({ contents: post.contents, post_id: post.post_id })
     }, []),
   }
   return result
