@@ -30,7 +30,7 @@ async function findPosts(user_id) {
 
   */
  const rows = await db('posts as p')
-    .join()
+    .join('users as u', 'u.id', '=', 'p.user_id')
 }
 
 function find() {
