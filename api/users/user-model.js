@@ -34,7 +34,7 @@ async function findPosts(user_id) {
     .select('contents', 'username', 'p.id as post_id')
     .where('u.id', user_id)
   console.log(rows)
-  // transformation of the data
+  // transformation of the
   return rows
 }
 
