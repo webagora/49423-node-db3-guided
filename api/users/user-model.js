@@ -66,7 +66,7 @@ async function find() {
 
   */
  const rows = await db('users as u')
-    .leftJoin('join posts as p')
+    .leftJoin('posts as p', 'u.id', 'p.user_id')
 
  // maybe make changes?
  return rows
