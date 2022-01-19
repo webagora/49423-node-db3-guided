@@ -65,9 +65,11 @@ async function find() {
   order by post_count desc;
 
   */
- const rows = await db()
+ const rows = await db('users as u')
+    .leftJoin('join posts as p')
 
  // maybe make changes?
+ return rows
 }
 
 function findById(id) {
