@@ -88,8 +88,18 @@ async function findById(id) {
         etc
       ]
     }
+
+    select
+      username,
+      u.id as user_id,
+      p.id as post_id,
+      contents
+    from users as u
+    left join posts as p
+        on u.id = p.user_id
+    where u.id = 4;
   */
-  return 'foobar'
+  const rows = await db('')
 }
 
 function add(user) {
