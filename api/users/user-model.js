@@ -102,7 +102,9 @@ async function findById(id) {
   const rows = await db('users as u')
     .leftJoin('posts as p', 'u.id', 'p.user_id')
     .select('username', 'u.id as user_id', 'p.id as post_id', 'contents')
-    .where('u.id')
+    .where('u.id', id)
+
+  return rows
 }
 
 function add(user) {
