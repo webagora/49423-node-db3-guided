@@ -107,8 +107,8 @@ console.log(rows)
   const result = {
     username: rows[0].username,
     user_id: rows[0].user_id,
-    posts: rows.reduce((acc) => {
-
+    posts: rows.reduce((posts, post) => {
+      return posts
     }, []),
   }
   return result
