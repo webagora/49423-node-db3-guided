@@ -73,8 +73,7 @@ async function find() {
   return rows
 }
 
-function findById(id) {
-  return db('users').where({ id }).first()
+async function findById(id) {
   /*
     Improve so it resolves this structure:
 
@@ -89,7 +88,33 @@ function findById(id) {
         etc
       ]
     }
+
+    select
+      username,
+      u.id as user_id,
+      p.id as post_id,
+      contents
+    from users as u
+    left join posts as p
+        on u.id = p.user_id
+    where u.id = 4;
   */
+  const rows = await db('users as u')
+    .leftJoin('posts as p', 'u.id', 'p.user_id')
+    .select('username', 'u.id as user_id', 'p.id as post_id', 'contents')
+    .where('u.id', id)
+
+  const result = {
+    username: rows[0].username,
+    user_id: rows[0].user_id,
+    posts: rows.reduce((posts, post) => {
+      if (!post.post_id) return posts
+      const { contents, post_id } = post
+      return posts.concat({ contents, post_id })
+    }, []),
+  }
+
+  return result
 }
 
 function add(user) {
